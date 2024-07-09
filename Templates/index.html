@@ -1,0 +1,35 @@
+{% extends 'base.html' %} 
+
+{% block head %}
+<title>TO-DO</title>
+{% endblock %} 
+
+{% block body %}
+<div class="table">
+  <h1>To-Do List App</h1>
+  <table>
+    <tr>
+      <th>Task</th>
+      <th>Created On</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>
+        <a href="">Delete</a>
+        <br />
+        <a href="">Update</a>
+      </td>
+    </tr>
+  </table>
+
+  <form action="/" method="POST">
+    <input type="text" name="content" id="content" />
+    <input type="checkbox" name="status" id="status" />
+    <input type="submit" value="Add task" />
+  </form>
+</div>
+{% endblock %}
