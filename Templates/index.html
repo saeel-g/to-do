@@ -15,15 +15,17 @@
       <th>Actions</th>
     </tr>
     <tr>
-      <td></td>
-      <td></td>
-      <td></td>
+      {% for task in todos %}
+      <td>{{ task[1] }}</td>
+      <td>{{ task[2] }}</td>
+      <td>{{ task[3] }}</td>
       <td>
         <a href="">Delete</a>
         <br />
         <a href="">Update</a>
       </td>
     </tr>
+    {% endfor %}
   </table>
 
   <form action="/" method="POST">
