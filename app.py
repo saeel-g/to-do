@@ -1,43 +1,44 @@
 from flask import Flask, render_template, request, redirect, url_for
-from flask_sqlalchemy import SQLAlchemy
+# from flask_sqlalchemy import SQLAlchemy
 import sqlite3
 from datetime import datetime
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  
-db = SQLAlchemy(app)
 
-class TODO(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    content = db.Column(db.String(500), nullable=False)
-    created_on = db.Column(db.DateTime, default=datetime.now)
-    status = db.Column(db.Boolean, default=False)
 
-    def __repr__(self):
-        return '<task %r>' % self.id
 
+connect = sqlite3.connect("database.db")
+connect.execute(
+                '''
+                CREATE TABLE IF NOT EXISTS TODO (
+                id INTEGER PRIMARY KEY AUTOINCREMENT, 
+                content TEXT, 
+                created_on TEXT, 
+                status INTEGER
+                )'''
+                )
+connect.close() 
 @app.route('/', methods=["POST","GET"])
 def index():
-    if request.method == "POST":
-        task_content = request.form['content']
-        print(task_content)
-        new_task_content = TODO(content=task_content)
-        
-        task_status = request.form["status"]
-        new_task_status = TODO(status=task_status)
+    if request.method == 'POST':
+        content = request.form['name']
+        status = request.form['status']
+        create_on = datetime.now.strftime("%Y-%m-%d %H:%M:%S")
 
-        try:
-            db.session.add(new_task_content)
-            db.session.add(new_task_status)
-            db.session.commit()
-            return redirect('/')
-        except:
-            return 'error'
-
+        with sqlite3.connect("database.db") as users:
+            cursor = users.cursor()
+            cursor.execute("INSERT INTO TODO \ (content, create_on, status)VALUES (?,?,?)", (content, create_on, status))
+            users.commit()
+        # return render_template("index.html")
+        return redirect(url_for('index'))
     else:
-        tasks = TODO.query.order_by(TODO.created_on).all()
-        return render_template("index.html")
+        with sqlite3.connect("database.db") as conn:
+            cursor = conn.cursor()
+            cursor.execute("SELECT * FROM TODO")
+            todos = cursor.fetchall()
+
+        # return render_template("index.html")
+        return render_template("index.html", todos=todos)
 
 if __name__ == "__main__":
     app.run(debug=True)
