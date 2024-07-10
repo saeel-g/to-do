@@ -1,8 +1,8 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
 
 {% block head %}
 <title>TO-DO</title>
-{% endblock %} 
+{% endblock %}
 
 {% block body %}
 <div class="table">
@@ -12,26 +12,34 @@
       <th>Task</th>
       <th>Created On</th>
       <th>Status</th>
-      <th>Actions</th>
+      <th colspan="2">Actions</th>
     </tr>
+    {% for task in todos %}
     <tr>
-      {% for task in todos %}
       <td>{{ task[1] }}</td>
       <td>{{ task[2] }}</td>
-      <td><input type="checkbox" name="status" {% if task[3] == 1 %}checked{% endif %} disabled></td>
       <td>
-        <a href="/delete/{{ task[0] }}">Delete</a>
-        <br />
-        <a href="">Update</a>
+        {% if task[3] == 1 %}
+        Done
+        {% else %}
+        Not Done
+        {% endif %}
+      </td>
+      <td>
+        <button onclick="window.location.href='/delete/{{ task[0] }}'">Delete</button>
+        {% if task[3] == 0 %}
+      </td>
+      <td>
+        <button onclick="window.location.href='/mark_as_done/{{ task[0] }}'">Mark as Done</button>
+        {% endif %}
       </td>
     </tr>
     {% endfor %}
   </table>
 
   <form action="/" method="POST">
-    <input type="text" name="content" id="content" />
-    <input type="checkbox" name="status"> Mark as done
-    <input type="submit" value="Add task" />
+    <input type="text" name="content" id="content" required>
+    <input type="submit" value="Add task">
   </form>
 </div>
 {% endblock %}
