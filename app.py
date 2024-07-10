@@ -17,6 +17,7 @@ connect.execute(
                 status INTEGER
                 )'''
                 )
+
 connect.close() 
 @app.route('/', methods=["POST","GET"])
 def index():
@@ -46,6 +47,17 @@ def index():
         # return render_template("index.html")
         print("*************GET request sent******************")
         return render_template("index.html",todos=todos)
+    
+@app.route('/delete/<int:entry_id>')
+def delete_entry(entry_id):
+    entry_id = int(entry_id)
+    with sqlite3.connect("database.db") as users:
+        cursor = users.cursor()
+        cursor.execute("delete from TODO where id=?", (entry_id,))
+        users.commit()
+    return redirect('/')
+   
+
 
 if __name__ == "__main__":
     app.run(debug=True)

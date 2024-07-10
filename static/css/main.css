@@ -3,3 +3,57 @@ body {
   background-color: azure;
   font-family: sans-serif;
 }
+
+.table {
+  width: 80%; /* Adjust width as needed */
+  margin: 0 auto; /* Center horizontally */
+  text-align: center; /* Center text content inside */
+  padding: 20px; /* Optional: Add padding */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: Add shadow */
+  border-radius: 8px; /* Optional: Add rounded corners */
+  background-color: #f9f9f9; /* Optional: Add background color */
+}
+
+/* Optional: Style for the table */
+.table table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px; /* Adjust spacing */
+}
+
+.table table th, .table table td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.table table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.table table td {
+  vertical-align: middle; /* Optional: Center content vertically */
+}
+
+/* Optional: Style for form and input elements */
+.table form {
+  margin-top: 20px; /* Adjust spacing */
+}
+
+.table form input[type="checkbox"], .table form input[type="submit"] {
+  margin: 5px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.table form input[type="text"]{
+  margin: 5px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: text;
+}
