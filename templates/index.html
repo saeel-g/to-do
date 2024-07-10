@@ -18,7 +18,7 @@
       {% for task in todos %}
       <td>{{ task[1] }}</td>
       <td>{{ task[2] }}</td>
-      <td>{{ task[3] }}</td>
+      <td><input type="checkbox" name="status" {% if task[3] == 1 %}checked{% endif %} disabled></td>
       <td>
         <a href="/delete/{{ task[0] }}">Delete</a>
         <br />
@@ -30,7 +30,7 @@
 
   <form action="/" method="POST">
     <input type="text" name="content" id="content" />
-    <input type="checkbox" name="status" id="status" />
+    <input type="checkbox" name="status"> Mark as done
     <input type="submit" value="Add task" />
   </form>
 </div>

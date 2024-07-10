@@ -25,7 +25,7 @@ def index():
         content = request.form["content"]
         status = request.form.get("status", "0")
         status = 1 if status == "on" else 0
-        created_on = date.today().strftime("%Y-%m-%d")
+        created_on = date.today().strftime("%d-%m-%y")
         with sqlite3.connect("database.db") as users:
             cursor = users.cursor()
             cursor.execute("INSERT INTO TODO (content, created_on, status)VALUES (?,?,?)", (content, created_on, status))
