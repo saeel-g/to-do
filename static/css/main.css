@@ -4,14 +4,25 @@ body {
   font-family: 'Google Sans', sans-serif;
 }
 
+.header {
+  width: 80%; 
+  margin: 20px auto; 
+  text-align: center; 
+  padding: 20px; 
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+  border-radius: 8px; 
+  background-color: #f9f9f9;
+   
+}
+
 .table {
-  width: 80%; /* Adjust width as needed */
-  margin: 0 auto; /* Center horizontally */
-  text-align: center; /* Center text content inside */
-  padding: 20px; /* Optional: Add padding */
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: Add shadow */
-  border-radius: 8px; /* Optional: Add rounded corners */
-  background-color: #f9f9f9; /* Optional: Add background color */
+  width: 80%; 
+  margin: 20px auto; 
+  text-align: center; 
+  padding: 20px; 
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+  border-radius: 8px; 
+  background-color: #f9f9f9; 
 }
 
 /* Optional: Style for the table */
@@ -57,39 +68,100 @@ body {
   font-size: 14px;
   cursor: text;
 }
-
-button {
+.delete-icon {
   display: inline-block;
-  background-color: #6200ea; /* Material UI primary color */
+  padding: 5px 10px;
+  background-color: #f44336; /* Red background */
+  color: white; /* White text */
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.delete-icon:hover {
+  background-color: #d32f2f; /* Darker red on hover */
+}
+
+.delete-icon {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #f44336; /* Red background */
+  color: white; /* White text */
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.delete-icon:hover {
+  background-color: #d32f2f; 
+}
+
+.done-icon {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #2a7cf7; 
+  color: white; 
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.done-icon:hover {
+  background-color: #0079ca; 
+}
+
+.table form input[type="submit"] {
+  font-weight: bold;
+  margin: 5px;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  background-color:dodgerblue;
+}
+
+/* button {
+  display: inline-block;
+  background-color: #6200ea; 
   border: none;
   color: white;
-  padding: 8px 16px; /* Increased padding for better touch target */
+  padding: 8px 16px; 
   text-align: center;
   text-decoration: none;
   font-size: 1rem;
-  font-weight: 500; /* Medium font weight */
-  border-radius: 4px; /* Smaller border radius */
+  font-weight: 500; 
+  border-radius: 4px; 
   box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 
               0px 2px 2px 0px rgba(0, 0, 0, 0.14), 
-              0px 1px 5px 0px rgba(0, 0, 0, 0.12); /* Material shadow */
-  transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transitions */
+              0px 1px 5px 0px rgba(0, 0, 0, 0.12); 
+  transition: background-color 0.3s, box-shadow 0.3s; 
 }
 
 button:hover {
-  background-color: #3700b3; /* Darker shade on hover */
+  background-color: #3700b3; 
   box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.3), 
               0px 3px 4px 0px rgba(0, 0, 0, 0.25), 
-              0px 1px 8px 0px rgba(0, 0, 0, 0.22); /* Slightly more elevated shadow on hover */
+              0px 1px 8px 0px rgba(0, 0, 0, 0.22); 
 }
 
 button:active {
-  background-color: #3700b3; /* Same as hover color for active state */
+  background-color: #3700b3; 
   box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 
               0px 2px 2px 0px rgba(0, 0, 0, 0.14), 
-              0px 1px 5px 0px rgba(0, 0, 0, 0.12); /* Material shadow */
+              0px 1px 5px 0px rgba(0, 0, 0, 0.12); 
 }
 
 button:focus {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(98, 0, 234, 0.4); /* Focus ring */
-}
+  box-shadow: 0 0 0 3px rgba(98, 0, 234, 0.4); 
+} */

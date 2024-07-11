@@ -5,14 +5,16 @@
 {% endblock %}
 
 {% block body %}
+<div>
+  <h1 class="header">To-Do List App</h1>
+</div>
 <div class="table">
-  <h1>To-Do List App</h1>
   <table>
     <tr>
       <th>Task</th>
       <th>Created On</th>
       <th>Status</th>
-      <th colspan="2">Actions</th>
+      <th>Actions</th>
     </tr>
     {% for task in todos %}
     <tr>
@@ -26,20 +28,22 @@
         {% endif %}
       </td>
       <td>
-        <button onclick="window.location.href='/delete/{{ task[0] }}'">Delete</button>
+        <a href="/delete/{{ task[0] }}" onclick="return confirm('Are you sure you want to delete?')" class="delete-icon" title="Delete Task">
+          <i class="material-icons">delete_forever</i>
+      </a>
         {% if task[3] == 0 %}
+        <a href="/mark_as_done/{{ task[0] }}" class="done-icon" title="Mark as Done"><i class="material-icons">check</i></a>
       </td>
-      <td>
-        <button onclick="window.location.href='/mark_as_done/{{ task[0] }}'">Mark as Done</button>
+     
         {% endif %}
-      </td>
+      
     </tr>
     {% endfor %}
   </table>
 
   <form action="/" method="POST">
     <input type="text" name="content" id="content" required>
-    <input type="submit" value="Add task">
+    <input class="submit-button" type="submit" value="Add task">
   </form>
 </div>
 {% endblock %}
